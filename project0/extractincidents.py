@@ -20,7 +20,6 @@ def extractincidents(incident_data):
            
             # Check if the current line starts with a date
             if re.match(r'^\d{1,2}/\d{1,2}/\d{4}', line):
-                print(line)
                 parts = re.split(r'\s{2,}', line)
                 if len(parts) >= 5:
                     incident = {
