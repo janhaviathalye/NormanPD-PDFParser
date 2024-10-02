@@ -1,5 +1,4 @@
-import urllib
-import requests
+import urllib.request
 
 def fetchincidents(url):
     headers = {}
