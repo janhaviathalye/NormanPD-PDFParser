@@ -8,6 +8,8 @@ def extractincidents(incident_data):
     incident_file = BytesIO(incident_data)
     incident_file_pdf = PdfReader(incident_file)
     records = []
+    exclude_line = ["Date / Time", "Incident Number", "Location", "Nature", "Incident ORI"]
+    
     
     # Regex to match the Date/Time pattern
     date_time_pattern = re.compile(r'^\d{1,2}/\d{1,2}/\d{4} \d{1,2}:\d{2}')
@@ -17,18 +19,23 @@ def extractincidents(incident_data):
         text = page.extract_text(extraction_mode="layout")
         for line in text.split('\n'):
             line=line.strip()
+
+            for str in exclude_line:
+                if line.startswith(str):
+                    continue
            
             # Check if the current line starts with a date
             if re.match(r'^\d{1,2}/\d{1,2}/\d{4}', line):
-                parts = re.split(r'\s{2,}', line)
-                if len(parts) >= 5:
+                chunks = re.split(r'\s{2,}', line)
+                if len(chunks) >= 5:
                     incident = {
-                        'Date Time': parts[0],
-                        'Incident Number': parts[1],
-                        'Location': parts[2],
-                        'Nature': parts[3],
-                        'ORI': parts[4]
+                        'Date Time': chunks[0],
+                        'Incident Number': chunks[1],
+                        'Location': chunks[2],
+                        'Nature': chunks[3],
+                        'ORI': chunks[4]
                     }
                     records.append(incident)
+                
 
     return records
