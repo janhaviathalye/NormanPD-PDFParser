@@ -45,4 +45,4 @@ def test_populatedb():
                     VALUES (?, ?, ?, ?, ?);
                      ''', expected_records)
 
-test_populatedb()
+# test_populatedb()

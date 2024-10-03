@@ -37,4 +37,4 @@ def test_status(mock_print):
     # Ensure that print was called exactly twice (once for each record)
     assert mock_print.call_count == 2
 
-test_status()
+# test_status()

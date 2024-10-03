@@ -12,4 +12,4 @@ def test_extract_incidents():
 
     assert len(total_records) == 402
 
-test_extract_incidents()
+# test_extract_incidents()

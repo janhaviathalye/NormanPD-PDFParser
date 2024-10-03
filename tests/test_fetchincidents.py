@@ -26,4 +26,4 @@ def test_fetchincidents(mock_urlopen):
     # Assert the function's result is what we expect
     assert result == b"mocked data"
 
-test_fetchincidents()
+# test_fetchincidents()

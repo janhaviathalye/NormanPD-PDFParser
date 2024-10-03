@@ -41,4 +41,4 @@ def test_createdb(mock_connect, mock_remove, mock_exists):
     # Ensure that the returned connection is the mock connection
     assert conn == mock_conn
 
-createdb()
+# createdb()
