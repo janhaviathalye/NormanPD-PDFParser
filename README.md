@@ -47,6 +47,7 @@ pipenv run python -m pytest
 ## Project Demo Video
 
 
+https://github.com/user-attachments/assets/202cee61-e975-4c5b-a9dc-898e9e038cc3
 
 
 ## Functions
@@ -127,6 +128,7 @@ This project includes several test cases designed to verify the correctness and 
 The tests are located in the tests/ directory, and each function is tested individually. You can run all the tests using pytest, and each function has been tested with both normal inputs and edge cases.
 
 1. test_fetchincidents.py
+
 Purpose: Tests the fetchincidents() function to ensure that it can successfully download a PDF file from the provided URL.
 
 Test Case:
@@ -135,6 +137,7 @@ The test case mocks the URL and simulates downloading the data. The response is 
 It verifies that the function correctly handles the HTTP request and retrieves data.
 
 2. test_extractincidents.py
+
 Purpose: Tests the extractincidents() function, which processes the PDF and extracts the necessary fields like date/time, incident number, location, nature, and ORI.
 
 Test Case:
@@ -143,6 +146,7 @@ The test case mocks a PDF file with sample incident data. It verifies that the e
 It also checks that the function can handle multi-line fields and extracts the correct data from each row.
 
 3. test_createdb.py
+
 Purpose: Tests the createdb() function to ensure that a fresh SQLite database is created, and the schema is correctly set up.
 
 Test Case:
@@ -151,6 +155,7 @@ The test case checks whether the database file is correctly created in the resou
 It verifies that the incidents table exists with the correct schema, and no old data remains after creating a new database.
 
 4. test_populatedb.py
+
 Purpose: Tests the populatedb() function, which takes the extracted data and inserts it into the SQLite database.
 
 Test Case:
@@ -160,6 +165,7 @@ It checks that the number of records in the table matches the number of incident
 
 
 5. test_status.py
+
 Purpose: Tests the status() function, which queries the database and prints a summary of the incident types and their counts.
 
 Test Case:
