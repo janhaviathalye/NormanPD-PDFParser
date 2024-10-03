@@ -1,6 +1,7 @@
 import sqlite3
 import os
 
+#Creates a sqlite3 db with corresponding columns for Date Time, Incident number, Location, Nature & Incident ORI if it doesn't exist
 def createdb():
     if os.path.exists("./resources/normanpd.db"):
         os.remove("./resources/normanpd.db")

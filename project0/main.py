@@ -23,7 +23,7 @@ def main(url):
     # Print incident counts
     status.status(db)
 
-
+#Takes the incident pdf url from the command line and passes it to the first function
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--incidents", type=str, required=True, 

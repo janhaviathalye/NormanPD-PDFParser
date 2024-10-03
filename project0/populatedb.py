@@ -1,4 +1,4 @@
-
+#Inserts the data in records in the corresponding columns within the db
 def populatedb(db, incidents):
     curr = db.cursor()
     records = [(data['Date Time'], data['Incident Number'], data['Location'], data['Nature'], data['ORI'])
