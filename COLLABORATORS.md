@@ -1,0 +1,1 @@
+https://pypdf.readthedocs.io/en/stable/index.html | Helped me understand the simplest way to execute extraction of data.
