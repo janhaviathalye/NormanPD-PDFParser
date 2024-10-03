@@ -130,7 +130,7 @@ This project includes several test cases designed to verify the correctness and 
 
 The tests are located in the tests/ directory, and each function is tested individually. You can run all the tests using pytest, and each function has been tested with both normal inputs and edge cases.
 
-#### test_fetchincidents.py < br / >
+#### test_fetchincidents.py <br />
 
 Purpose: Tests the fetchincidents() function to ensure that it can successfully download a PDF file from the provided URL.
 
