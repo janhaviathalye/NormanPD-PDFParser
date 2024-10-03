@@ -81,18 +81,18 @@ This function queries the database for the distinct incident types (natures) and
 ## Database Development
 The project utilizes SQLite as a lightweight database to store incident data extracted from the PDFs. The following functions handle the creation, population, and querying of the SQLite database.
 
-1. createdb() Function
+#### createdb() Function
 The createdb() function is responsible for creating a SQLite database file named normanpd.db. If the database file already exists in the resources/ directory, it is deleted and replaced with a new one. This ensures that each time the program is run, it starts with a fresh database. The function creates a table named incidents with the following schema:
 
-CREATE TABLE incidents (
-    incident_time TEXT,
-    incident_number TEXT,
-    incident_location TEXT,
-    nature TEXT,
-    incident_ori TEXT
+CREATE TABLE incidents (\m
+    incident_time TEXT,\n
+    incident_number TEXT,\n
+    incident_location TEXT,\n
+    nature TEXT,\n
+    incident_ori TEXT\n
 );
 
-2. populatedb(db, incidents) Function
+#### populatedb(db, incidents) Function
 The populatedb() function is responsible for inserting the incident data extracted from the PDF into the incidents table in the SQLite database.
 
 Parameters:
@@ -109,16 +109,16 @@ Example SQL:
 INSERT INTO incidents (incident_time, incident_number, incident_location, nature, incident_ori)
 VALUES (?, ?, ?, ?, ?);
 
-3. status(db) Function
+#### status(db) Function
 The status() function provides a summary of the incidents stored in the database. It queries the incidents table to count the occurrences of each unique incident type (the nature field) and prints the results in a sorted format.
 
 Query:
 
 The function runs a SQL query that groups the incidents by their nature and counts how many times each type of incident occurred. The results are sorted alphabetically by the nature field:
 
-SELECT nature, COUNT(*)
-FROM incidents
-GROUP BY nature
+SELECT nature, COUNT(*)\n
+FROM incidents\n
+GROUP BY nature\n
 ORDER BY nature ASC;
 
 ## Test Cases
@@ -127,7 +127,7 @@ This project includes several test cases designed to verify the correctness and 
 
 The tests are located in the tests/ directory, and each function is tested individually. You can run all the tests using pytest, and each function has been tested with both normal inputs and edge cases.
 
-1. test_fetchincidents.py
+1. test_fetchincidents.py\n
 
 Purpose: Tests the fetchincidents() function to ensure that it can successfully download a PDF file from the provided URL.
 
@@ -136,7 +136,7 @@ Test Case:
 The test case mocks the URL and simulates downloading the data. The response is a mock object that mimics a real PDF download.
 It verifies that the function correctly handles the HTTP request and retrieves data.
 
-2. test_extractincidents.py
+2. test_extractincidents.py\n
 
 Purpose: Tests the extractincidents() function, which processes the PDF and extracts the necessary fields like date/time, incident number, location, nature, and ORI.
 
@@ -145,7 +145,7 @@ Test Case:
 The test case mocks a PDF file with sample incident data. It verifies that the extractincidents() function correctly parses the PDF and extracts the expected fields.
 It also checks that the function can handle multi-line fields and extracts the correct data from each row.
 
-3. test_createdb.py
+3. test_createdb.py\n
 
 Purpose: Tests the createdb() function to ensure that a fresh SQLite database is created, and the schema is correctly set up.
 
@@ -154,7 +154,7 @@ Test Case:
 The test case checks whether the database file is correctly created in the resources/ directory.
 It verifies that the incidents table exists with the correct schema, and no old data remains after creating a new database.
 
-4. test_populatedb.py
+4. test_populatedb.py\n
 
 Purpose: Tests the populatedb() function, which takes the extracted data and inserts it into the SQLite database.
 
@@ -164,7 +164,7 @@ The test case verifies that the extracted data is correctly inserted into the in
 It checks that the number of records in the table matches the number of incidents passed to the function.
 
 
-5. test_status.py
+5. test_status.py\n
 
 Purpose: Tests the status() function, which queries the database and prints a summary of the incident types and their counts.
 
