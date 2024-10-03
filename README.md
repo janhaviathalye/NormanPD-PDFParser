@@ -1,6 +1,6 @@
 # cis6930fa24-project0
 
-Project 0 - CIS 6930 Fall 2024
+Project 0 - CIS 6930: Data Engineering Fall 2024
 
 Name: Janhavi Athalye
 
@@ -65,7 +65,9 @@ Date/Time <br />
 Incident Number<br />
 Location<br />
 Nature of the incident<br />
-ORI<br /> The extracted fields are stored in a list of dictionaries for further processing.
+ORI<br /> 
+
+The extracted fields are stored in a list of dictionaries for further processing.
 
 
 #### createdb(): 
@@ -98,7 +100,7 @@ CREATE TABLE incidents (
 #### populatedb(db, incidents) Function
 The populatedb() function is responsible for inserting the incident data extracted from the PDF into the incidents table in the SQLite database.
 
-db: The SQLite database connection returned by the createdb() function.
+The SQLite database connection returned by the createdb() function.
 incidents: A list of dictionaries, where each dictionary contains the fields extracted from the PDF (incident_time, incident_number, incident_location, nature, and incident_ori).
 Process:
 
@@ -107,13 +109,19 @@ It uses the executemany() function to efficiently insert all the incidents into 
 
 Example SQL:
 
-INSERT INTO incidents (incident_time, incident_number, incident_location, nature, incident_ori)
+```
+INSERT INTO incidents 
+(incident_time, 
+incident_number, 
+incident_location, 
+nature, 
+incident_ori)
+
 VALUES (?, ?, ?, ?, ?);
+```
 
 #### status(db) Function
 The status() function provides a summary of the incidents stored in the database. It queries the incidents table to count the occurrences of each unique incident type (the nature field) and prints the results in a sorted format.
-
-Query:
 
 The function runs a SQL query that groups the incidents by their nature and counts how many times each type of incident occurred. The results are sorted alphabetically by the nature field:
 
@@ -140,7 +148,7 @@ Test Case:
 The test case mocks the URL and simulates downloading the data. The response is a mock object that mimics a real PDF download.
 It verifies that the function correctly handles the HTTP request and retrieves data.
 
-#### test_extractincidents.py\n <br />
+#### test_extractincidents.py <br />
 
 Purpose: Tests the extractincidents() function, which processes the PDF and extracts the necessary fields like date/time, incident number, location, nature, and ORI.
 
@@ -149,7 +157,7 @@ Test Case:
 The test case mocks a PDF file with sample incident data. It verifies that the extractincidents() function correctly parses the PDF and extracts the expected fields.
 It also checks that the function can handle multi-line fields and extracts the correct data from each row.
 
-#### test_createdb.py\n <br />
+#### test_createdb.py <br />
 
 Purpose: Tests the createdb() function to ensure that a fresh SQLite database is created, and the schema is correctly set up.
 
@@ -158,7 +166,7 @@ Test Case:
 The test case checks whether the database file is correctly created in the resources/ directory.
 It verifies that the incidents table exists with the correct schema, and no old data remains after creating a new database.
 
-#### test_populatedb.py\n <br />
+#### test_populatedb.py <br />
 
 Purpose: Tests the populatedb() function, which takes the extracted data and inserts it into the SQLite database.
 
@@ -168,7 +176,7 @@ The test case verifies that the extracted data is correctly inserted into the in
 It checks that the number of records in the table matches the number of incidents passed to the function.
 
 
-#### test_status.py\n <br />
+#### test_status.py <br />
 
 Purpose: Tests the status() function, which queries the database and prints a summary of the incident types and their counts.
 
