@@ -1,6 +1,4 @@
-# cis6930fa24-project0
-
-Project 0 - CIS 6930: Data Engineering Fall 2024
+# NormanPD-PDFParser
 
 Name: Janhavi Athalye
 
